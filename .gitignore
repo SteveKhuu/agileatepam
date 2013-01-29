@@ -1,6 +1,0 @@
-*.log
-*.pot
-*.pyc
-agileatepam/settings.py~
-.gitignore~
-local_settings.py
