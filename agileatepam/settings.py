@@ -15,10 +15,10 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'agileatepam',                      # Or path to database file if using sqlite3.
-        'USER': 'agileuser',                      # Not used with sqlite3.
-        'PASSWORD': 'agileuser',                  # Not used with sqlite3.
-        'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
+        'NAME': 'dfuk5nodsshrl2a',                      # Or path to database file if using sqlite3.
+        'USER': 'textauyvacmqqg',                      # Not used with sqlite3.
+        'PASSWORD': 'Icx2zBBp4R0DIbn-t9UFssL_u2',                  # Not used with sqlite3.
+        'HOST': 'ec2-54-243-182-70.compute-1.amazonaws.com',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
@@ -165,7 +165,4 @@ LOGGING = {
 }
 
 
-import dj_database_url
-DATABASES = {'default': dj_database_url.config()}
 
-print dj_database_url.config()
