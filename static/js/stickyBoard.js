@@ -105,7 +105,6 @@ StickyBoard = function(){
     		'type' : 'add',
     		'config' : data
     	};
-    	alert('Hi Frank: ' + window.location.host);
 		
     	post_ajax_request("/add_sticky_note/", JSON.stringify(data), function( assigned_id ) {
             gridObject.add_widget('<li class="sticky_post ' + data.colour + '" data-index="' + assigned_id + '" data-colour="' + data.colour + '">' + data.text + '</li>', 1, 1);
