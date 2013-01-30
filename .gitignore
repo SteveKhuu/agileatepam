@@ -3,6 +3,7 @@
 *.pyc
 agileatepam/settings.py~
 .gitignore~
+requirements.txt~
 local_settings.py
 .project
 .pydevproject

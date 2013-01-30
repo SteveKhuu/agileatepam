@@ -1,0 +1,208 @@
+textarea {
+  width: 96%;
+  padding: 5px;
+  resize: none;
+  margin: 0px 1%;
+}
+
+.stickyBoard {
+    border: 1px solid #404243;
+    border-radius: 5px;
+    padding: 10px;
+    
+    button {
+        display: inline-block;
+        width: auto;
+    }
+}
+
+.gridster_modal {
+  background: white;
+  border-radius: 0.5em;
+  box-shadow: 0px 1px 10px 2px #CCC;
+  position: fixed;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  margin: -25% 0 0 -25%;
+  
+  /* Embiggen */
+  transform: scale(1.5); /* prefix me */
+
+  /* Hidden */
+  opacity: 0;
+  pointer-events: none;
+    
+}
+
+.modal-body {
+    position: relative;
+}
+.page_content, .gridster_modal {
+  -webkit-transition: all 0.4s ease; /* prefix me */
+  -moz-transition: all 0.4s ease; /* prefix me */
+  -o-transition: all 0.4s ease; /* prefix me */
+  transition: all 0.4s ease; /* prefix me */
+}
+
+.dialogIsOpen .page_content {
+
+  /* Blur and de-color */
+  -webkit-filter: blur(5px) grayscale(50%);
+
+  /* Recede */
+  -webkit-transform: scale(0.9);
+
+}
+
+.dialogIsOpen .gridster_modal {
+  transform: scale(1);
+  opacity: 1;
+
+  /* Clickable */
+  pointer-events: auto;
+  
+}
+
+.gridster {
+    position:relative;
+
+    > * {
+        margin: 0 auto;
+        -webkit-transition: height .4s;
+        -moz-transition: height .4s;
+        -o-transition: height .4s;
+        -ms-transition: height .4s;
+        transition: height .4s;
+    }
+
+    .gs_w{
+        z-index: 2;
+        position: absolute;
+    }
+
+    .dragging {
+        z-index: 10!important;
+        -webkit-transition: all 0s !important;
+        -moz-transition: all 0s !important;
+        -o-transition: all 0s !important;
+        transition: all 0s !important;
+    }
+
+    .preview-holder {
+        z-index: 1;
+        position: absolute;
+        background-color: #fff;
+        border-color: #fff;
+        opacity: 0.3;
+    }
+
+    .player-revert {
+        z-index: 10!important;
+        -webkit-transition: left .3s, top .3s!important;
+        -moz-transition: left .3s, top .3s!important;
+        -o-transition: left .3s, top .3s!important;
+        transition:  left .3s, top .3s!important;
+    }
+}
+
+.ready .gs_w:not(.preview-holder) {
+    -webkit-transition: opacity .3s, left .3s, top .3s;
+    -moz-transition: opacity .3s, left .3s, top .3s;
+    -o-transition: opacity .3s, left .3s, top .3s;
+    transition: opacity .3s, left .3s, top .3s;
+}
+
+.ready .gs_w:not(.preview-holder) {
+    -webkit-transition: opacity .3s, left .3s, top .3s, width .3s, height .3s;
+    -moz-transition: opacity .3s, left .3s, top .3s, width .3s, height .3s;
+    -o-transition: opacity .3s, left .3s, top .3s, width .3s, height .3s;
+    transition: opacity .3s, left .3s, top .3s, width .3s, height .3s;
+}
+
+.sticky_post {
+    background:#fefabc; 
+    padding: 5px; 
+    font-family: 'Gloria Hallelujah', cursive; 
+    font-size:15px; 
+    color: #000; 
+    
+    box-shadow: 0px 4px 6px #333;
+    -moz-box-shadow: 0px 4px 6px #333;
+    -webkit-box-shadow: 0px 4px 6px #333;
+
+}
+
+.selected_sticky_post {
+  box-shadow: 0px 4px 6px #3CA0D0;
+  -moz-box-shadow: 0px 4px 6px #3CA0D0;
+  -webkit-box-shadow: 0px 4px 6px #3CA0D0;
+}
+
+#current_colour {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #404243;
+    border-radius: 0.5em;
+    margin: 0px 0px 10px 1%;
+    cursor: pointer;
+}
+
+.colour_list {
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    display: none;
+}
+
+.colour_option {
+    margin: 0px 0px 0px 1%;
+
+    li {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border: 2px solid #404243;
+        border-radius: 0.5em;
+        cursor: pointer;
+    }
+
+    li:hover, li:active {
+        border: 2px solid #08C;
+    }
+}
+
+
+/**************************************
+****  Post-it colours
+**************************************/
+
+.default_sticky {
+  background-color: #FEFABC;
+}
+
+.pink_sticky {
+  background-color: #F59DB9;
+}
+
+.orange_sticky {
+  background-color: #F9A55B;
+}
+
+.green_sticky {
+  background-color: #D0E17D;
+}
+
+.teal_sticky {
+  background-color: #36A9CE;
+}
+
+.purple_sticky {
+  background-color: #AE86BC;
+}
+
+.gold_sticky {
+  background-color: #FFDF25;
+}
