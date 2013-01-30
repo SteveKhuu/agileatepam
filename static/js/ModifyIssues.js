@@ -8,5 +8,6 @@ ModifyIssue = function(issueNumber, storyPoints) {
     	url: request_url,
     	data: JSON.stringify({issueNumber: issueNumber, storyPoints: storyPoints}),
     }).done(function(responseStr) {
+    	XF.UIElements.showDialog("Issue modified", "Issue " + issueNumber + " was modified.");
     });
 }
