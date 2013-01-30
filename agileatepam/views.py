@@ -9,7 +9,7 @@ from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
-
+from django.views.decorators.csrf import csrf_exempt
 from agileatepam.models import Comment, Sticky, Activity
 
 from datetime import datetime
@@ -23,6 +23,7 @@ def index(request):
     
     return render(request, 'agileatepam/index.html', context)
 
+@csrf_exempt
 def add_sticky_note(request):
   
     assigned_id = ""
@@ -49,6 +50,7 @@ def add_sticky_note(request):
     
     return HttpResponse(assigned_id)
 
+@csrf_exempt
 def delete_sticky_note(request):
   
     assigned_id = ""
@@ -69,6 +71,7 @@ def delete_sticky_note(request):
       
     return HttpResponse("Sticky %s deleted" % assigned_id)
 
+@csrf_exempt
 def edit_sticky_note(request):
   
     assigned_id = ""
@@ -97,6 +100,7 @@ def edit_sticky_note(request):
     
     return HttpResponse("Sticky %s edited" % assigned_id)
 
+@csrf_exempt
 def move_sticky_note(request):
   
     assigned_id = ""
