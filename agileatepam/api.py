@@ -10,7 +10,7 @@ from agileatepam.models import Comment
 
 def get_comments(request):
     
-    comments = Comment.objects.all()
+    comments = Comment.objects.all().order_by('created_datetime')
     
     comment_data = []
     
