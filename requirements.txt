@@ -4,3 +4,4 @@ dj-database-url==0.2.1
 psycopg2==2.4.5
 simplejson==2.6.1
 tornado==2.4.1
+requests==1.1.0
