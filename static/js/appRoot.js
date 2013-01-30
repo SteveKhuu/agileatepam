@@ -60,7 +60,7 @@ $(function(){
 	        viewClass: XF.View.extend({
 	        	postRender : function() {
 	        		$('#statusPage').hide();
-	        		
+	        		XF.Router.navigate("status", true);
 	        	}
 	        })
 	    };

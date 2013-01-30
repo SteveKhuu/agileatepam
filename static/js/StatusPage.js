@@ -52,10 +52,10 @@ StatusPage = function() {
 				if(lastTimeStamp){
 					var lastTimeStampDate = formatPostedDatetime(lastTimeStamp);
 					if((commentDate - lastTimeStampDate) > 0){
-						appendNewMessage(commentItem.comment);
+						appendNewMessage(commentItem.user, commentItem.comment);
 					}
 				}else{	
-					appendNewMessage(commentItem.comment);
+					appendNewMessage(commentItem.user, commentItem.comment);
 				}
 				
 			}
@@ -72,15 +72,10 @@ StatusPage = function() {
 		return new Date(dateTokens[0], dateTokens[1], dateTokens[2], timeTokens[0], timeTokens[1], timeTokens[2]);
 	}
 	
-	function appendNewMessage(message) {
-		/*$("#status").append("<ul data-role=\"listview\">" +
-				"<li data-role=\"divider\">Name</li>" +
-				"<li>" + message + "</li></ul>")*/
-		
-		$("#status").append('<p class="triangle-right">' + 
-				message
+	function appendNewMessage(user, message) {
+		$("#status").append('<p class="triangle-right"><label class="statusName">' + 
+				user + '</label>: ' + message
 				+ '</p>');
-		XF.UIElements.enhanceView($("#statusPage"));
 		
 		window.scrollTo(0, document.body.scrollHeight);
 	} 
