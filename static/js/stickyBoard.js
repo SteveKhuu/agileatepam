@@ -1,9 +1,9 @@
 EditableTitles = function($list){
 	var titles = [];
 	
-	function buildEditor($title){
+	function buildEditor($title, width){
 		$title.addClass("editable");
-		var editForm = $('<div class="editForm"></div>');
+		var editForm = $('<div class="editForm" style="width:' + width + 'px"></div>');
 		var textarea = $('<textarea class="edittitleField"></textarea>');
 		var saveButton = $('<button class="editTitleSave">Save</button>');
 		editForm.append(textarea);
@@ -37,9 +37,16 @@ EditableTitles = function($list){
 	}
 	
 	function init(){
+		var title_width = $list.width();
+		var cell_width;
+		
 		titles = $list.find("li");
+		cell_width = title_width / (titles.length+0.5);
+		
 		titles.each(function(){
-			buildEditor($(this));
+			var self = $(this);
+			self.width(cell_width);
+			buildEditor(self, cell_width);
 		});
 		
 		bindEvents();
@@ -105,7 +112,7 @@ StickyBoard = function(){
     		'type' : 'add',
     		'config' : data
     	};
-		
+    	
     	post_ajax_request("/add_sticky_note/", JSON.stringify(data), function( assigned_id ) {
             gridObject.add_widget('<li class="sticky_post ' + data.colour + '" data-index="' + assigned_id + '" data-colour="' + data.colour + '">' + data.text + '</li>', 1, 1);
             hideModal();
@@ -429,4 +436,5 @@ StickyBoard = function(){
     }
     
     init();
+    
 }

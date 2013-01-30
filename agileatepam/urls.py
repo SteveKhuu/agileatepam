@@ -25,6 +25,7 @@ urlpatterns = patterns('',
      url(r'^move_sticky_note/$', views.move_sticky_note, name='move_sticky_note'),
      
      ### APIS ###
+     url(r'^api/get_all_open_issues/$', api.get_all_open_issues, name='get_all_open_issues'),
      url(r'^api/get_comments/$', api.get_comments, name='get_comments'),
      url(r'^api/create_json_issue/$', api.create_json_issue, name='create_json_issue'),
      url(r'^api/add_status/$', api.add_status, name='add_status'),

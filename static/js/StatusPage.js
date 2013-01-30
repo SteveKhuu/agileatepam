@@ -73,10 +73,13 @@ StatusPage = function() {
 	}
 	
 	function appendNewMessage(message) {
-		$("#status").append("<ul data-role=\"listview\">" +
+		/*$("#status").append("<ul data-role=\"listview\">" +
 				"<li data-role=\"divider\">Name</li>" +
-				"<li>" + message + "</li></ul>")
-
+				"<li>" + message + "</li></ul>")*/
+		
+		$("#status").append('<p class="triangle-right">' + 
+				message
+				+ '</p>');
 		XF.UIElements.enhanceView($("#statusPage"));
 		
 		window.scrollTo(0, document.body.scrollHeight);

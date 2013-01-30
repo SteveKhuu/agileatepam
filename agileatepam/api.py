@@ -12,10 +12,11 @@ import time
 
 from agileatepam.models import Comment, Sticky, Activity
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
 import requests
-import json
 from requests.auth import HTTPBasicAuth
 
+@csrf_exempt
 def create_json_issue(request):
     if request.method == 'POST':
         try:
@@ -30,10 +31,14 @@ def create_json_issue(request):
                            "summary": json_data['title'],
                            "description": json_data['description'],
                            "issuetype": {
-                              "name": "Task"
-                           }
+                              "name": json_data['issueType']
+                           },
+                           
                        }
                     }
+            
+            if json_data['storyPoints'] is not None and json_data['issueType'] == 'Story':
+                submit_data["fields"]["customfield_10004"] = int(json_data['storyPoints'])
             
             headers = {'content-type': 'application/json'}
             
@@ -41,6 +46,7 @@ def create_json_issue(request):
                           data=json.dumps(submit_data),
                           headers=headers,
                           auth=HTTPBasicAuth('wolfpack', 'password1'))
+            
             return HttpResponse(result.text)
         except Exception as e:
             print e.message
@@ -138,4 +144,14 @@ def add_status(request):
             return HttpResponse("Malformed data!")
     
     return HttpResponse()
+
+@csrf_exempt
+def get_all_open_issues(request):
+    headers = {'content-type': 'application/json'}
+            
+    result = requests.get("https://candianwolfpack.atlassian.net/rest/api/latest/search?jql=project=MH AND status in (Open,\"In Progress\",Reopened)",
+                          headers=headers,
+                          auth=HTTPBasicAuth('wolfpack', 'password1'))
+    
+    return HttpResponse(result.text)
     

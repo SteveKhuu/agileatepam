@@ -1,5 +1,13 @@
 <form id="jiraCreate">
 <input placeholder="Title" type="text"  class="title"></input>
 <input placeholder="Description" type="text" class="description"></input>
-<input type="submit" class="submit" value="Create"></input>
+				<div class="xf-input-select">
+
+					<select name="" id="IssueType">
+						<option value="Story">Story</option>
+						<option value="Task">Task</option>
+					</select>
+				</div>	
+<input placeholder="Story Points" type="text" class="storyPoints"></input>
+<input type="submit" class="submit" value="Create" data-special="true"></input>
 </form>

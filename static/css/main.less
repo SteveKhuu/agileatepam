@@ -1,3 +1,166 @@
 ul {
     list-style: none;
 }
+
+#openIssues {
+ .jiraItem {
+	display: inline-block;
+	width: 140px;
+	height: 140px;
+	background-color: #fefabc;
+	box-shadow: 0px 4px 6px #333;
+	-moz-box-shadow: 0px 4px 6px #333;
+	-webkit-box-shadow: 0px 4px 6px #333;
+	box-sizing: border-box;
+	padding: 5px;
+	vertical-align: top;
+	margin: 5px;
+	
+	.key {
+		font-weight: bold;
+		padding-bottom: 20px;
+		text-align: right;
+	}
+	
+	.summary {
+		min-height: 60px;
+		padding-bottom: 10px;
+	}
+	
+	.storyPoints {
+		text-align: right;
+	}
+	
+ }
+ 
+ .key {
+    cursor: pointer;
+ }
+ 
+ .key:hover {
+    color: #AA0000;
+ }
+}
+
+.clear {
+    clear: both;
+}
+
+
+/** Magic Nav **/
+.nav-wrap { 
+    margin: 0px auto 50px auto;  
+    background-color: rgba(0,0,0,0.6); 
+    padding: 5px; 
+}
+
+#hangoutButton {
+    margin-left: 20px;
+}
+
+#app_nav { 
+    margin: 0 auto; 
+    list-style: none; 
+    position: relative; 
+    width: 960px; 
+    
+    li { 
+        display: inline; 
+        
+        a { 
+            color: #FFFFFF; 
+            font-size: 14px; 
+            display: block; 
+            float: left; 
+            padding: 6px 10px 4px 10px; 
+            text-decoration: none; 
+            text-transform: uppercase; 
+            font-weight: bold;
+            cursor: pointer;
+         }
+    }
+}
+
+#magic-line { 
+    position: absolute; 
+    bottom: -2px; 
+    left: 0;
+    width: 100px; 
+    height: 2px; 
+    background: #fe4902; 
+}
+
+/** Status Page **/
+
+#addStatus {
+    margin: 0px;
+}
+
+#statusPage, #jiraStoryCreate {
+    margin: 10px;
+}
+
+.triangle-right {
+    position:relative;
+    padding:15px;
+    margin:1em 0 1.5em;
+    color:#fff;
+    background:#075698; /* default background for browsers without gradient support */
+    /* css3 */
+    background:-webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
+    background:-moz-linear-gradient(#2e88c4, #075698);
+    background:-o-linear-gradient(#2e88c4, #075698);
+    background:linear-gradient(#2e88c4, #075698);
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+}
+
+.triangle-right:after {
+    content:"";
+    position:absolute;
+    bottom:-20px; /* value = - border-top-width - border-bottom-width */
+    left:50px; /* controls horizontal position */
+    border-width:20px 0 0 20px; /* vary these values to change the angle of the vertex */
+    border-style:solid;
+    border-color:#075698 transparent; 
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+
+/** Create Jira Issue **/
+#jiraCreate > div, #jiraCreate > input {
+    margin-bottom: 10px;
+}
+
+/** Existing Issue Page **/
+
+#visitExistingIssue {
+
+    form {
+        > div, > label, > input {
+            margin-bottom: 10px;
+        }
+    }
+    
+    margin: -20px 10%;
+    padding: 20px 10px;
+    -webkit-border-bottom-left-radius: 20px 500px;
+    -webkit-border-bottom-right-radius: 500px 30px;
+    -webkit-border-top-right-radius: 5px 100px;
+    -moz-border-radius-bottomleft: 20px 500px;
+    -moz-border-radius-bottomright: 500px 30px;
+    -moz-border-radius-topright: 5px 100px;
+    border-radius-bottomleft: 20px 500px;
+    border-radius-bottomright: 500px 30px;
+    border-radius-topright: 5px 100px;
+    background: #fcf59b;
+    background: -webkit-gradient( linear, left top, left bottom, from(#81cbbc), color-stop(2%, #fcf59b) );
+    background: -moz-repeating-linear-gradient( top, #fcf59b, #fcf59b 38px, #81cbbc 40px );
+    background: repeating-linear-gradient( top, #fcf59b, #fcf59b 38px, #81cbbc 40px );
+    -webkit-background-size: 100% 40px;
+    -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 2px 10px 1px rgba(0,0,0,.2);
+    box-shadow: 0 2px 10px 1px rgba(0,0,0,.2);
+}

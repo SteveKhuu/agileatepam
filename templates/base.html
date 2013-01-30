@@ -29,6 +29,9 @@
 		<script src="{% get_static_prefix %}js/gridster.js"></script>
 		<script src="{% get_static_prefix %}js/stickyBoard.js"></script>
 		<script src="{% get_static_prefix %}js/JiraCreatePage.js"></script>
+		<script src="{% get_static_prefix %}js/AllOpenIssuesPage.js"></script>
+		<script src="{% get_static_prefix %}js/RetrospectiveBoard.js"></script> 
+		<script src="{% get_static_prefix %}js/VisitSpecificIssues.js"></script> 
 		<script>
 		$(function(){
 			XF.start({
@@ -41,15 +44,19 @@
 		        routes: {
 				'':         'home',
 				'/':        'home',
-				'chat':     'chat',
 				'status':     'status',
 				'createJiraIssue':     'createJiraIssue',
+				'retrospectiveBoard': 'retrospectiveBoard',
+				'allOpenIssues': 'allOpenIssues',
+				'visitSpecifcIssue': 'visitSpecifcIssue'
 				}, 
 				handlers: {
 					home : function() {alert('home')},
-					chat : Handlers.chat,
 					status : Handlers.status,
-					createJiraIssue : Handlers.createJiraIssue
+					createJiraIssue : Handlers.createJiraIssue,
+					retrospectiveBoard : Handlers.retrospectiveBoard,
+					allOpenIssues : Handlers.allOpenIssues,
+					visitSpecifcIssue : $.noop
 				}
 			}});});
 		
@@ -58,14 +65,15 @@
 	</head>
     <script src="{% get_static_prefix %}js/less.js"></script>
 
-    <div id="app-root" data-id="app-root" data-component="appRoot">
+	<div id="app-root" data-id="app-root" data-component="appRoot">
         <div class="xf-dialog  xf-dialog-notification"><div class="xf-dialog-content"><div class="xf-notification"><div class="xf-notification-wrap"><div class="xf-notification-text">Loading...</div></div></div></div></div>
     </div>
     
     <div class="gridster_modal">
   
 	  <div class="modal-header">
-	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    <button type="button" data-appearance="button" class="close" data-alert="true" id="closeModal">&times;</button>
+	    <div class="clear"></div>
 	    <h3></h3>
 	  </div>
 	  <div class="modal-body">
@@ -86,7 +94,7 @@
 	    </div>
 	  </div>
 	  <div class="modal-footer">
-	    <button data-dismiss="modal" class="cancel_button">Cancel</button>
+	    <button data-dismiss="modal" class="cancel_button"  data-alert="true">Cancel</button>
 	    <button id="save_sticky_text">Add sticky</button>
 	  </div>
 	</div>

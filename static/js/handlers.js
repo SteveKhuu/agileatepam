@@ -19,4 +19,19 @@ Handlers = {};
 				var page = new JiraCreatePage();
 				leaveTo(page);
 			};
+			
+	Handlers.retrospectiveBoard = function () {
+				var page = new RetrospectiveBoard();
+				leaveTo(page);
+			};
+	Handlers.allOpenIssues = function () {
+				var page = new AllOpenIssuesPage();
+				leaveTo(page);
+			};
+			
+	Handlers.visitSpecificIssue = function (issue) {
+		var page = new VisistSpecificIssue(issue);
+		leaveTo(page);
+		XF.Router.navigate("visitSpecifcIssue", true );
+	};
 })()
