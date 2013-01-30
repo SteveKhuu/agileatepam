@@ -22,7 +22,7 @@ AllOpenIssuesPage = function () {
 	function addAsOpenIssue(openIssue) {
 		var storyPoint = "";
 		if (openIssue.fields.customfield_10004) {
-			storyPoint = "<div class='storyPoints'>" + openIssue.fields.customfield_10004+ "</div>";
+			storyPoint = "<div class='storyPoints'> Story Points: " + openIssue.fields.customfield_10004+ "</div>";
 		}
 		
 		$("#openIssues").append("<div class='jiraItem' data-key='" + openIssue.key +"'>" +
