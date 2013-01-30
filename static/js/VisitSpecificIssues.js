@@ -8,9 +8,15 @@ VisistSpecificIssue = function (specificIssue) {
 		}
 		$('#visitExistingIssue').show();
 		
+		$('#editExistingIssue').submit(submitChanges)
+		
 	}
 	this.start = start;
 	
+	function submitChanges(evt) {
+		evt.preventDefault();
+		ModifyIssue(specificIssue.key, $('#editExistingIssue .storyPoints').val());
+	}
 	
 	
 	function destroy() {

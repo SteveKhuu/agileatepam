@@ -52,7 +52,7 @@ def create_json_issue(request):
             print e.message
     return HttpResponse()
     
-
+@csrf_exempt
 def get_comments(request):
     
     datestring = "2010-01-30T21:49:36"
@@ -83,6 +83,7 @@ def get_comments(request):
     
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
+@csrf_exempt
 def get_stickies(request):
     
     stickies = Sticky.objects.all()
@@ -110,6 +111,7 @@ def get_stickies(request):
     
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
+@csrf_exempt
 def get_activities(request):
     activities = Activity.objects.all().order_by('event_time')
     
@@ -132,7 +134,7 @@ def get_activities(request):
     
     return HttpResponse(json.dumps(response_data), content_type="application/json")
 
-
+@csrf_exempt
 def add_status(request):
     if request.method == 'POST':
         try:
@@ -154,4 +156,32 @@ def get_all_open_issues(request):
                           auth=HTTPBasicAuth('wolfpack', 'password1'))
     
     return HttpResponse(result.text)
-    
+
+@csrf_exempt
+def modify_storypoints(request):
+    if request.method == 'POST':
+        try:
+            
+            json_data = json.loads(request.raw_post_data)
+            
+            changedObject = {
+                           "fields": {
+                                "customfield_10004" : int(json_data['storyPoints'])
+                                      }                           
+                       }
+                    
+            
+            issue_number = json_data['issueNumber']
+            
+            headers = {'content-type': 'application/json'}
+            
+            result = requests.put("https://candianwolfpack.atlassian.net/rest/api/latest/issue/" + issue_number,                         
+                          headers=headers,
+                          data=json.dumps(changedObject),
+                          auth=HTTPBasicAuth('wolfpack', 'password1'));
+                        
+            return HttpResponse(result.text)
+        
+        except Exception as e:
+            print e.message
+    return HttpResponse()
