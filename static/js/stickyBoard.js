@@ -193,7 +193,7 @@ StickyBoard = function(){
     
     function notOwnAction(activity){
     	var changed = false;
-    	if(lastAction.type == activity.type){
+    	if(lastAction && lastAction.type == activity.type){
     		if(lastAction.type == 'delete'){
     			if(lastAction['config']['assigned_id'] != activity.sticky_id){
     				changed = true;
